@@ -45,7 +45,8 @@ urlpatterns = [
     url(r'^forget/$', views.register, name='register'),
     url(r'^info/', views.Userinfo, name='info'),
     url(r'^edit_profile/', views.editprofile, name='edit_profile'),
-
+    
+    # Change Password
     url(r'^pwdc/$', auth.PasswordChangeView.as_view(
         template_name='password_change_form.html'), name='password_change'),
     url(r'^pwdd/$', auth.PasswordChangeDoneView.as_view(
