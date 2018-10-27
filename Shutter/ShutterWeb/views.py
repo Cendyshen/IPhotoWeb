@@ -208,7 +208,7 @@ def inbox(request):
                         break
 
         paginator = Paginator(conversation, 5)  # Show 5 messages per page
-        paginator.count = len(list(conversation))
+        paginator.count = len(list(conversation)) #total page number
 
         page = request.GET.get('page', 1)
         print(page)
