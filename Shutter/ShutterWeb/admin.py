@@ -20,7 +20,7 @@ class UserAdmin(admin.ModelAdmin):
 
 admin.site.register(UserProfile, UserAdmin)
 
-
+# Message Admin
 class MessageAdmin(admin.ModelAdmin):
     class Meta:
         model = Message
