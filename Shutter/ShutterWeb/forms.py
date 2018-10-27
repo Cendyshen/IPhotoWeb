@@ -42,6 +42,7 @@ class messageSendForm(forms.ModelForm):
         model = Message
         fields = ['content']
 
+# User Information
 class UserInfoForm(forms.ModelForm):
     class Meta:
         model = UserProfile
