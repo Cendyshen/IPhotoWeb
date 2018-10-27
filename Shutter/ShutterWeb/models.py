@@ -115,7 +115,7 @@ class Photo(models.Model):
     def __str__(self):
         return self.photo_name
 
-
+# Ptoto Comment
 class PhotoComment(models.Model):
     author = models.ForeignKey('UserProfile', related_name='PhotoComment_Author',
                                on_delete=models.CASCADE, null=True)
