@@ -25,7 +25,7 @@ class RegisterForm(UserCreationForm):
         model = UserProfile
         fields = ("username", "email")
 
-
+# Photo Form
 class photoForm(forms.ModelForm):
     image = forms.ImageField(required=False)
     class Meta:
