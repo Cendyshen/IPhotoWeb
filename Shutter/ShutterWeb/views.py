@@ -138,6 +138,7 @@ class Conversation():
     time = timezone.now()
 
 def inbox(request):
+    # inbox page
     context = {}
     if 'user_id' in request.session:
         user_id = request.session['user_id']
