@@ -143,6 +143,7 @@ def inbox(request):
     if 'user_id' in request.session:
         user_id = request.session['user_id']
         user = UserProfile.objects.get(pk=user_id)
+        # message view order
         if 'messageSortByDate' in request.POST:
             message_list = Message.objects.filter(Q(author=request.user)|Q(receiver=request.user)).order_by('-time')
         elif 'messageSortByUnread' in request.POST:
