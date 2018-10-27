@@ -17,7 +17,6 @@ class TopicForm(forms.ModelForm):
 
     # register related
 
-
 class RegisterForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = UserProfile
