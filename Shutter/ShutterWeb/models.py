@@ -15,9 +15,6 @@ class UserProfile(AbstractUser):
     address = models.CharField(max_length=100, default=u"")
 
 
-
-
-
     class Meta(AbstractUser.Meta):
         pass
 
@@ -37,6 +34,7 @@ class Message(models.Model):
         return ('from %s to %s at %s:%s %s/%s/%s'
                 % (self.author, self.receiver, self.time.hour, self.time.minute, self.time.day, self.time.month,
                    self.time.year))
+
 
 
 class Topic(models.Model):

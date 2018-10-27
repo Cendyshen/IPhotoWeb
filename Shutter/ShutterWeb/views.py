@@ -50,6 +50,7 @@ def hot_topic(request):
     return render(request, 'hot_topic.html', context)
 
 
+
 # View topic detail and add comment
 def topic(request, topic_id):
     try:
