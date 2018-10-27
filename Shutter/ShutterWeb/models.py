@@ -16,6 +16,8 @@ class UserProfile(AbstractUser):
 
 
 
+
+
     class Meta(AbstractUser.Meta):
         pass
 

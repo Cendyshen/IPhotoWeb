@@ -8,6 +8,7 @@ urlpatterns = [
     # home page will be redirected to album_scenery_new.html
     url(r'^$', views.index, name='index'),
 
+
     # forum
     url(r'^forum/$',views.forum, name='forum'),
     url(r'^hot_topic/$', views.hot_topic, name='hot_topic'),
