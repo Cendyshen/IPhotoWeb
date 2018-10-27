@@ -157,6 +157,7 @@ def inbox(request):
             form = messageSendForm(request.POST)
             if form.is_valid():
                 try:
+                    # save message
                     receiver = UserProfile.objects.get(username=request.POST['receiver'])
                     message = Message()
                     message.author = request.user
