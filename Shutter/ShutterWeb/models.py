@@ -36,7 +36,7 @@ class Message(models.Model):
                    self.time.year))
 
 
-
+    # Topic
 class Topic(models.Model):
     title = models.CharField(max_length=100, null=True, blank=True)
     content = models.CharField(max_length=500, null=True, blank=True)
