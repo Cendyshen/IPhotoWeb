@@ -16,7 +16,7 @@ class TopicForm(forms.ModelForm):
         model= Topic
         fields = ['title', 'content']
 
-    # register related
+    # register Form
 
 
 
