@@ -10,7 +10,7 @@ class CommentForm(forms.ModelForm):
         fields = ['content', ]
 
 
-
+# Topic Form
 class TopicForm(forms.ModelForm):
     class Meta:
         model= Topic
