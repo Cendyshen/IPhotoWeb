@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}News{% endblock %}
+
+{% block customcss %}
+
+{% endblock %}
+
+{% block MainBody %}
+
+  <div>
+       <br>
+
+         <table class="table">
+           <tbody>
+            {% if latest_news %}
+                    <thead>
+                 <tr>
+                    <th>News Title</th>
+                     <th>Author</th>
+                     <th>Public Time</th>
+                     <th>Remarks</th>
+                     <th>Description</th>
+                 </tr>
+                   </thead>
+                {% for t in latest_news %}
+                 <tr scope="row">
+                <th>
+                    <li><a href="/ShutterWeb/news_content/{{ t.id }}/">{{ t.title }}</a></li>
+                </th>
+                     <td>
+                    {{t.author}}
+                    </td>
+                    <td>
+                    {{ t.time }}
+                    </td>
+                     <td>
+                    {{ t.remarks }}
+                     </td>
+                     <td>
+                    {{ t.description }}
+                     </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <p>No news is available.</p>
+            {% endif %}
+     </tbody>
+     </table>
+
+
+
+    </div>
+
+{% endblock %}
