@@ -10,14 +10,12 @@ class CommentForm(forms.ModelForm):
         fields = ['content', ]
 
 
-
 class TopicForm(forms.ModelForm):
     class Meta:
         model= Topic
         fields = ['title', 'content']
 
     # register related
-
 
 
 class RegisterForm(UserCreationForm):
