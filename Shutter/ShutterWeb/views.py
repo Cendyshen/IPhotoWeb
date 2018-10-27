@@ -15,6 +15,7 @@ from .forms import CommentForm, TopicForm,photoForm,photocommentForm
 def index(request):
     return HttpResponseRedirect("album/scenery/new")
 
+
 def forum(request):
     latest_topic_list=Topic.objects.order_by('-time')
     paginator = Paginator(latest_topic_list, 5) # Show 25 contacts per page
@@ -31,6 +32,7 @@ def forum(request):
     context = {'latest_topic': latest_topic}
     return render(request, 'forum.html', context)
 
+
 def hot_topic(request):
     latest_topic_list=Topic.objects.order_by('-remarks')
     paginator = Paginator(latest_topic_list, 5) # Show 25 contacts per page
@@ -46,6 +48,7 @@ def hot_topic(request):
         latest_topic = paginator.page(paginator.num_pages)
     context = {'latest_topic': latest_topic}
     return render(request, 'hot_topic.html', context)
+
 
 # View topic detail and add comment
 def topic(request, topic_id):
