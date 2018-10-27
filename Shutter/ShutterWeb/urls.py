@@ -39,7 +39,7 @@ urlpatterns = [
     url(r'^album/delete_comment/(\d+)/$', views.delete_comment, name='delete_comment'),
 
     # login,logout,register,change password,password reset by email
-    url(r'^login/$', views.user_login, name="login"),
+    url(r'^login/$', views.user_login, name="login"), #user login
     url(r'^logout/$', views.user_logout, name="logout"),
     url(r'^register/', views.register, name='register'),
     url(r'^forget/$', views.register, name='register'),
