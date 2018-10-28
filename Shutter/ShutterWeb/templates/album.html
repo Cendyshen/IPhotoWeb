@@ -23,7 +23,7 @@
           <!--<img class="first-slide"
           src="http://knowledge.wharton.upenn.edu/wp-content/uploads/2017/09/092817_cameralens.jpg"
           width="100%" height="400px" alt="First slide">-->
-          <img class="first-slide" src="{% static 'images/background1.jpeg'%}"  width="100%" height="500px" alt="First slide">
+          <img class="first-slide" src="https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/09/ANVWAOJ-1-796x398.jpg"  width="100%" height="500px" alt="First slide">
           <div class="container">
             <div class="carousel-caption text-left">
               <h1>Album</h1>
@@ -81,7 +81,7 @@
     <div class="container">
       <div class="row">
 
-        <h1 class="col-lg-8">
+        <h1 class="col-lg-5">
           {% if newest_scenery_photos %}Newest Scenery
           {% elif hottest_scenery_photos%}Hottest Scenery
           {% elif newest_people_photos%}Newest Portraiture
@@ -114,18 +114,15 @@
             </button>
         </div>
 
+        <div class="col-sm-2">
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+                    onclick="window.location.href='{% url 'detect_face' %}'">Find Photo With Face
+            </button>
+        </div>
+
       </div>
       <br>
-{#      {% if photos_list %}#}
-{#        <div class="row text-center text-lg-left">#}
-{#            {% for this_photo in photos_list %}#}
-{#            <div class="col-lg-3 col-md-4 col-xs-6">#}
-{#              <a href="#" class="d-block mb-4 h-100">#}
-{#                <img  class="img-thumbnail" src= "{% static this_photo.image.url %}"   onclick="window.location.href='../../../album/photo/{{ this_photo.id }}/' ">#}
-{#              </a>#}
-{#            </div>#}
-{#          {% endfor %}#}
-{#        </div>#}
+
     <div class="row">
         {% if photos_list %}
                 {% for this_photo in photos_list %}

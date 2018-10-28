@@ -10,6 +10,9 @@ from .models import Topic, Topiccomment, Message, Photo, PhotoComment, UserProfi
 from .forms import CommentForm, TopicForm, RegisterForm, photoForm, photocommentForm, messageSendForm, UserInfoForm, NewsCommentForm;
 from . import filters
 from .forms import CommentForm, TopicForm,photoForm,photocommentForm
+import cv2
+import sys
+import numpy as np
 
 # index, index.html will be redirect to album_scenery_new
 def index(request):
@@ -317,6 +320,34 @@ def album_people_new(request):
     #return render(request, 'album_people_new.html', context)
     return render(request, 'album.html', context)
 
+# try
+def detect_face(request):
+    imgs = Photo.objects.all();
+    face_list = [];
+    cascPath = "ShutterWeb/static/face_cascase.xml"
+    faceCascade = cv2.CascadeClassifier(cascPath)
+    for item in imgs:
+        path = "ShutterWeb/static/"+item.image.url
+        print(path)
+        image = cv2.imread(path)
+        if not image is None:
+        # image = cv2.imread("/Users/dan/Downloads/PhotoShow-master/Shutter/ShutterWeb/static/images/album/2018-07-23_010949.5099050000.jpg")
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            faces = faceCascade.detectMultiScale(
+                gray,
+                scaleFactor=1.1,
+                minNeighbors=5,
+                minSize=(30, 30),
+                flags=cv2.CASCADE_SCALE_IMAGE
+            )
+            if(len(faces)>0):
+                # face_list.append(item.image)
+                face_list.append(item)
+
+    # context = {'face_list': face_list}
+    context = {'face_list': face_list}
+    return render(request, 'people.html', context)
+
 
 def album_people_hot(request):
     # filter out all scenery photos (category = 1) and order by time
@@ -377,6 +408,9 @@ def album_photo(request, photo_id):
         'category': category,
     }
     return render(request, 'album_photo.html', context)
+
+
+
 
 
 # upload photo

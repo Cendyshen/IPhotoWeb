@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% load static %}
+
+
+{#    <div >#}
+        {% if face_list %}
+            {% for p in face_list %}
+{#                <div> {% static p.image %}</div>#}
+                <img class="first-slide" src="{% static p.image.url %}" width="300" height="300">
+
+            {% endfor %}
+        {% endif %}
+{#    </div>#}
+
+</body>
+</html>

@@ -38,6 +38,10 @@ urlpatterns = [
     url(r'^album/delete_photo/(\d+)/$', views.delete_photo, name='delete_photo'),
     url(r'^album/delete_comment/(\d+)/$', views.delete_comment, name='delete_comment'),
 
+    # try face detection
+    url(r'^face/$', views.detect_face, name="detect_face"),
+
+
     # login,logout,register,change password,password reset by email
     url(r'^login/$', views.user_login, name="login"),
     url(r'^logout/$', views.user_logout, name="logout"),
