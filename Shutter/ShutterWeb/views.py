@@ -142,10 +142,12 @@ class Conversation():
     time = timezone.now()
 
 def inbox(request):
+    # inbox page
     context = {}
     if 'user_id' in request.session:
         user_id = request.session['user_id']
         user = UserProfile.objects.get(pk=user_id)
+        # message view order
         if 'messageSortByDate' in request.POST:
             message_list = Message.objects.filter(Q(author=request.user)|Q(receiver=request.user)).order_by('-time')
         elif 'messageSortByUnread' in request.POST:
@@ -159,6 +161,7 @@ def inbox(request):
             form = messageSendForm(request.POST)
             if form.is_valid():
                 try:
+                    # save message
                     receiver = UserProfile.objects.get(username=request.POST['receiver'])
                     message = Message()
                     message.author = request.user
@@ -209,7 +212,7 @@ def inbox(request):
                         break
 
         paginator = Paginator(conversation, 5)  # Show 5 messages per page
-        paginator.count = len(list(conversation))
+        paginator.count = len(list(conversation)) #total page number
 
         page = request.GET.get('page', 1)
         print(page)

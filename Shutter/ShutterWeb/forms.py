@@ -10,12 +10,15 @@ class CommentForm(forms.ModelForm):
         fields = ['content', ]
 
 
+# Topic Form
 class TopicForm(forms.ModelForm):
     class Meta:
         model= Topic
         fields = ['title', 'content']
 
-    # register related
+    # register Form
+
+
 
 class RegisterForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
@@ -39,6 +42,7 @@ class messageSendForm(forms.ModelForm):
         model = Message
         fields = ['content']
 
+# User Information
 class UserInfoForm(forms.ModelForm):
     class Meta:
         model = UserProfile
